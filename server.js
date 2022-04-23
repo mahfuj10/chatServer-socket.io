@@ -4,12 +4,15 @@ const http = require('http');
 const cors = require('cors');
 const { Server } = require('socket.io');
 app.use(cors());
+const port = process.env.port || 5000;
+
+require('dotenv').config();
 
 const server = http.createServer(app);
 
 const io = new Server(server, {
     cors: {
-        origin: 'http://localhost:3000',
+        origin: 'https://inspiring-creponne-e904bc.netlify.app',
         methods: ["GET", "POST"]
     }
 });
